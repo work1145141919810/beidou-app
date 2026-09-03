@@ -1,0 +1,13 @@
+# Buildozer 生成的文件
+.buildozer/
+bin/
+*.pyc
+__pycache__/
+*.log
+
+# 其他可能的大文件
+*.apk
+*.aab
+*.zip
+*.tar.gz
+*.tar
