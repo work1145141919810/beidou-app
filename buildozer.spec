@@ -15,7 +15,8 @@ package.name = beidousender
 package.domain = org.beidou
 
 # (str) Source code where the main.py live
-source.dir = .main.py = sender_gui.py
+source.dir = .
+main.py = sender_gui.py
 # (list) Source files to include (leave empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
 
@@ -42,13 +43,8 @@ version = 0.1
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
 requirements = python3,kivy,usb4a,usbserial4a,pyjnius
-android.p4a_dir = /home/work/.buildozer/android/platform/python-for-android
-android.hostpython = /usr/bin/python3.11
-android.python_version = 3.11
-android.ndk_version = 25b   # 建议使用 25b，更稳定
 android.permissions = INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18), (name=android.hardware.usb.host)
 android.features = android.hardware.usb.host
-android.p4a_whitelist = lib-dynload/termios.so
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
 # requirements.source.kivy = ../../kivy
