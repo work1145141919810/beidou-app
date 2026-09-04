@@ -42,7 +42,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3==3.11.8,kivy,usb4a,usbserial4a,pyjnius
+requirements = python3,kivy,usb4a,usbserial4a,pyjnius
 android.permissions = INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18), (name=android.hardware.usb.host)
 android.features = android.hardware.usb.host
 # (str) Custom source folders for requirements
@@ -111,6 +111,7 @@ fullscreen = 0
 
 # (int) Target Android API, should be as high as possible.
 android.api = 33
+android.python_version = 3.11.8
 
 # (int) Minimum API your APK / AAB will support.
 android.minapi = 24
