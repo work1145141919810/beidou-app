@@ -21,8 +21,11 @@ jobs:
           sudo apt update
           sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
           pip3 install --upgrade pip
-          pip3 install buildozer
-          pip3 install cython
+          pip3 install buildozer cython
+          # Set JAVA_HOME to Java 17
+          echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> $GITHUB_ENV
+          # Also set PATH to include Java 17
+          echo "/usr/lib/jvm/java-17-openjdk-amd64/bin" >> $GITHUB_PATH
 
       - name: Build with Buildozer
         run: |
