@@ -21,7 +21,8 @@ jobs:
           sudo apt update
           sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
           pip3 install --upgrade pip
-          pip3 install buildozer cython
+          pip3 install --upgrade buildozer cython
+          pip3 install --upgrade python-for-android
           # Set JAVA_HOME to Java 17
           echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> $GITHUB_ENV
           # Also set PATH to include Java 17
