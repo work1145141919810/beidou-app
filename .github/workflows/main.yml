@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
 
@@ -19,14 +19,13 @@ jobs:
       - name: Install Buildozer dependencies
         run: |
           sudo apt update
-          sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+          sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
           pip3 install --upgrade pip
           pip3 install buildozer
           pip3 install cython
 
       - name: Build with Buildozer
         run: |
-          # 如果 buildozer.spec 不在根目录，调整路径
           buildozer android debug deploy run
 
       - name: Upload APK
