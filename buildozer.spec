@@ -42,7 +42,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,usb4a,pyjnius,charset-normalizer
+requirements = python3,kivy,usb4a,pyjnius,charset-normalizer --no-binary=charset-normalizer
 android.permissions = INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
 android.features = android.hardware.usb.host
 # (str) Custom source folders for requirements
