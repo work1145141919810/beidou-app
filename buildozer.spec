@@ -16,7 +16,7 @@ package.domain = org.beidou
 
 # (str) Source code where the main.py live
 source.dir = .
-main.py = sender_gui.py
+main.py = main.py
 # (list) Source files to include (leave empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
 
