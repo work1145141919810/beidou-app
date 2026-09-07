@@ -42,7 +42,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,usb4a,pyjnius,charset-normalizer --no-binary=charset-normalizer
+requirements = python3,kivy,usb4a,pyjnius,charset-normalizer==2.1.1
 android.permissions = INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
 android.features = android.hardware.usb.host
 # (str) Custom source folders for requirements
@@ -366,7 +366,7 @@ android.allow_backup = True
 #p4a.setup_py = false
 
 # (str) extra command line arguments to pass when invoking pythonforandroid.toolchain
-p4a.extra_args = --no-binary :all:
+#p4a.extra_args = --no-binary :all:
 
 #
 # iOS specific
