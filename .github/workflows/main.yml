@@ -29,6 +29,10 @@ jobs:
           echo "/usr/lib/jvm/java-17-openjdk-amd64/bin" >> $GITHUB_PATH
 
       - name: Build with Buildozer
+        env:
+          PIP_PLATFORM: android_24_arm64_v8a
+          PIP_PYTHON_VERSION: 3.14.2
+          PIP_NO_BINARY: charset-normalizer
         run: |
           buildozer android debug deploy run
 
