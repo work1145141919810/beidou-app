@@ -28,6 +28,15 @@ jobs:
           # Also set PATH to include Java 17
           echo "/usr/lib/jvm/java-17-openjdk-amd64/bin" >> $GITHUB_PATH
 
+      - name: Clean buildozer cache
+        run: |
+          rm -rf .buildozer
+
+      - name: Copy local recipe to p4a
+        run: |
+         mkdir -p .buildozer/android/platform/python-for-android/recipes/charset_normalizer
+         cp -r recipes/charset_normalizer/* .buildozer/android/platform/python-for-android/recipes/charset_normalizer/
+
       - name: Build with Buildozer
         run: |
           buildozer android debug deploy run
