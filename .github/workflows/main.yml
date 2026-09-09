@@ -40,7 +40,7 @@ jobs:
 
       - name: Build receiver APK
         run: |
-          buildozer android debug deploy run
+          buildozer android debug
 
       - name: Upload receiver APK
         uses: actions/upload-artifact@v4
