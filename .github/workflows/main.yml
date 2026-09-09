@@ -23,32 +23,27 @@ jobs:
           pip3 install --upgrade pip
           pip3 install --upgrade buildozer cython
           pip3 install --upgrade python-for-android
-          # Set JAVA_HOME to Java 17
           echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> $GITHUB_ENV
-          # Also set PATH to include Java 17
           echo "/usr/lib/jvm/java-17-openjdk-amd64/bin" >> $GITHUB_PATH
 
-     # - name: Clean buildozer cache
-      #  run: |
-       #   rm -rf .buildozer
-
-      - name: Copy local recipe to p4a
+      # ==========================
+      # 构建接收端 APK
+      # ==========================
+      - name: Prepare receiver build
         run: |
-         mkdir -p .buildozer/android/platform/python-for-android/recipes/charset_normalizer
-         cp -r recipes/charset_normalizer/* .buildozer/android/platform/python-for-android/recipes/charset_normalizer/
+          # 修改 buildozer.spec 为接收端配置
+          sed -i 's/^title = .*/title = 北斗接收端/' buildozer.spec
+          sed -i 's/^package.name = .*/package.name = beidoureceiver/' buildozer.spec
+          sed -i 's/^main.py = .*/main.py = main_receiver.py/' buildozer.spec
+          # 清理缓存（可选，但建议保留，避免残留发送端构建）
+          rm -rf .buildozer
 
-      - name: Cache Buildozer global directory
-        uses: actions/cache@v4
-        with:
-          path: ~/.buildozer
-          key: buildozer-global-${{ hashFiles('buildozer.spec') }}
-
-      - name: Build with Buildozer
+      - name: Build receiver APK
         run: |
-          buildozer android debug
+          buildozer android debug deploy run
 
-      - name: Upload APK
+      - name: Upload receiver APK
         uses: actions/upload-artifact@v4
         with:
-          name: beidou-app
+          name: beidou-receiver
           path: bin/*.apk
