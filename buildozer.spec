@@ -366,7 +366,7 @@ p4a.local_recipes = ./recipes
 #p4a.setup_py = false
 
 # (str) extra command line arguments to pass when invoking pythonforandroid.toolchain
-p4a.extra_args = --python-version=3.11.8
+#p4a.extra_args = --no-binary :all:
 #
 # iOS specific
 #
