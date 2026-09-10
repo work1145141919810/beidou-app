@@ -26,16 +26,11 @@ jobs:
           echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> $GITHUB_ENV
           echo "/usr/lib/jvm/java-17-openjdk-amd64/bin" >> $GITHUB_PATH
 
-      # ==========================
-      # 构建接收端 APK
-      # ==========================
       - name: Prepare receiver build
         run: |
-          # 修改 buildozer.spec 为接收端配置
           sed -i 's/^title = .*/title = 北斗接收端/' buildozer.spec
           sed -i 's/^package.name = .*/package.name = beidoureceiver/' buildozer.spec
           sed -i 's/^main.py = .*/main.py = main_receiver.py/' buildozer.spec
-          # 清理缓存（可选，但建议保留，避免残留发送端构建）
           rm -rf .buildozer
 
       - name: Build receiver APK
