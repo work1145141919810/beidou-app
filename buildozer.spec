@@ -111,7 +111,7 @@ fullscreen = 0
 
 # (int) Target Android API, should be as high as possible.
 android.api = 33
-android.python_version = 3.11.8
+#android.python_version = 3.11.8
 
 # (int) Minimum API your APK / AAB will support.
 android.minapi = 24
